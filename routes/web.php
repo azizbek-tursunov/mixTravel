@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('lang/change', [PageController::class, 'change'])->name('changeLang');

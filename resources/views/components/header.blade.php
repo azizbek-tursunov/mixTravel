@@ -21,12 +21,7 @@
                     <!--=== Main Menu ===-->
                     <nav class="main-menu">
                         <ul>
-                            <li class="menu-item has-children"><a href="#">Home</a>
-                                <ul class="sub-menu">
-                                    <li><a href="index.html">Home 01</a></li>
-                                    <li><a href="index-2.html">Home 02</a></li>
-                                    <li><a href="index-3.html">Home 03</a></li>
-                                </ul>
+                            <li class="menu-item has-children"><a href="#">{{ __('home.home') }}</a>
                             </li>
                             <li class="menu-item has-children"><a href="#">Accommodation</a>
                                 <ul class="sub-menu">
@@ -68,9 +63,10 @@
                                 class="far fa-angle-double-right"></i></a>
                     </div>
                     <div class="lang-dropdown">
-                        <select class="wide">
-                            <option value="English">English</option>
-                            <option value="English">English</option>
+                        <select class="wide form-control changeLang">
+                            <option value="uz" {{ session()->get('locale') == 'uz' ? 'selected' : '' }}>O'zbekcha</option>
+                            <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English</option>
+                            <option value="ru" {{ session()->get('locale') == 'ru' ? 'selected' : '' }}>Русский</option>
                         </select>
                     </div>
                     <div class="navbar-toggler">

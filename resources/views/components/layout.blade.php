@@ -54,14 +54,12 @@
 </div><!--====== Search From ======-->
 
 
-
-<x-header />
+<x-header/>
 
 {{ $slot }}
 
 
-<x-footer />
-
+<x-footer/>
 
 
 <!--====== Back To Top  ======-->
@@ -93,4 +91,12 @@
 <!--====== Main js ======-->
 <script src="assets/js/theme.js"></script>
 </body>
+
+<script type="text/javascript">
+    var url = "{{ route('changeLang') }}";
+    $(".changeLang").change(function () {
+        window.location.href = url + "?lang=" + $(this).val();
+    });
+</script>
+
 </html>
