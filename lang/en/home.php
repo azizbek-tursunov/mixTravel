@@ -9,4 +9,7 @@ return [
     'contact' => 'Contact',
     'more' => 'More',
     'withUs' => 'Travel with us. We offer you the best plans',
+
+    'newsletter' => 'Subscribe to newsletter',
+    'newsletterPlaceholder' => 'Enter your email address',
 ];

@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Footer extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'lang',
+        'about',
+        'contact',
+        'social',
+    ];
+
+    protected $casts = [
+        'social' => 'array',
+    ];
 }

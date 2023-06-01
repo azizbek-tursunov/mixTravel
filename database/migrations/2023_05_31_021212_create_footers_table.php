@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('footers', function (Blueprint $table) {
             $table->id();
+            $table->string('lang');
+            $table->text('about');
+            $table->text('contact');
+            $table->json('social');
             $table->timestamps();
         });
     }

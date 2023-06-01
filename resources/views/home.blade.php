@@ -193,7 +193,6 @@
             </div>
         </div>
     </section><!--====== End Accommodation Section ======-->
-
     <!--====== Start CTa Section ======-->
     <section class="cta-section dark-green-bg pt-70 pb-35">
         <div class="container">

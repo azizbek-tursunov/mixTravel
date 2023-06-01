@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Footer;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +21,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        view()->composer(
+            'components.footer',
+            function ($view) {
+                $view->with('footer', Footer::where('lang', App::getLocale())->first());
+            }
+        );
     }
 }

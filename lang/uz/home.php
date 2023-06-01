@@ -9,4 +9,7 @@ return [
     'contact' => 'Aloqa',
     'more' => 'Batafsil',
     'withUs' => 'Biz bilan sayohat qiling. Biz sizga eng yaxshi rejalarni taklif qilamiz',
+
+    'newsletter' => 'Yangiliklarga obuna bo\'ling',
+    'newsletterPlaceholder' => 'Elektron pochta manzilingizni kiriting',
 ];
