@@ -27,11 +27,15 @@ class TourResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\RichEditor::make('description')
-                    ->required()    ,
+                    ->required(),
                 Forms\Components\TextInput::make('direction')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
+                    ->image()
+                    ->imageResizeMode('force')
+                    ->imageResizeTargetWidth('675')
+                    ->imageResizeTargetHeight('550')
                     ->required(),
                 Forms\Components\Select::make('lang')
                     ->options([

@@ -29,6 +29,9 @@ class BannerResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
+                    ->image()
+                    ->imageResizeTargetWidth('1920')
+                    ->imageResizeTargetHeight('950')
                     ->required(),
                 Forms\Components\Select::make('lang')
                     ->options([

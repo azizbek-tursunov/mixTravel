@@ -29,6 +29,10 @@ class DestinationResource extends Resource
                 Forms\Components\TextInput::make('description')
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
+                    ->image()
+                    ->imageResizeMode('force')
+                    ->imageResizeTargetWidth('410')
+                    ->imageResizeTargetHeight('275')
                     ->required(),
                 Forms\Components\Select::make('lang')
                     ->options([

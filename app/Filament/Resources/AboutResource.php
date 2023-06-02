@@ -42,8 +42,16 @@ class AboutResource extends Resource
                 ])->columnSpan(8),
                 Forms\Components\Card::make([
                     Forms\Components\FileUpload::make('image_first')
+                        ->image()
+                        ->imageResizeMode('force')
+                        ->imageResizeTargetWidth('380')
+                        ->imageResizeTargetHeight('535')
                         ->required(),
                     Forms\Components\FileUpload::make('image_second')
+                        ->image()
+                        ->imageResizeMode('force')
+                        ->imageResizeTargetWidth('330')
+                        ->imageResizeTargetHeight('535')
                         ->required(),
                 ])->columnSpan(4),
 
