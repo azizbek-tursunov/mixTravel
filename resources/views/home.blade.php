@@ -76,12 +76,12 @@
                                 <img src="/storage/{{ $destination->image }}" alt="Service Image">
                                 <div class="hover-overlay"></div>
                                 <div class="hover-content">
-                                    <a href="accommodation-details.html" class="icon-btn"><i
+                                    <a href="{{ route('showByDestination', ['destination' => $destination->id]) }}" class="icon-btn"><i
                                             class="far fa-arrow-right"></i></a>
                                 </div>
                             </div>
                             <div class="text pt-35">
-                                <h4 class="title"><a href="accommodation-details.html">{{ $destination->name }}</a></h4>
+                                <h4 class="title"><a href="{{ route('showByDestination', ['destination' => $destination->id]) }}">{{ $destination->name }}</a></h4>
                             </div>
                         </div>
                     </div>

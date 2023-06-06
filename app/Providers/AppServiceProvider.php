@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Destination;
 use App\Models\Footer;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
@@ -25,6 +26,13 @@ class AppServiceProvider extends ServiceProvider
             'components.footer',
             function ($view) {
                 $view->with('footer', Footer::where('lang', App::getLocale())->first());
+            }
+        );
+
+        view()->composer(
+            'components.header',
+            function ($view) {
+                $view->with('destinations', Destination::where('lang', App::getLocale())->get());
             }
         );
     }

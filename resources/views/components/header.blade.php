@@ -8,7 +8,7 @@
             <div class="primary-menu">
                 <!--=== Site Branding ===-->
                 <div class="site-branding">
-                    <a href="index.html" class="brand-logo"><img src="assets/images/logo/logo-white.png"
+                    <a href="index.html" class="brand-logo"><img src="/assets/images/logo/logo-white.png"
                                                                  alt="Site Logo"></a>
                 </div>
                 <!--=== Nav Inner Menu ===-->
@@ -24,15 +24,24 @@
                             <li class="menu-item has-children"><a href="{{ route('home') }}">{{ __('home.home') }}</a>
                             </li>
                             <li class="menu-item has-children"><a href="#">{{ __('home.destination') }}</a>
+                                <ul class="sub-menu">
+                                    @foreach($destinations as $destination)
+                                        <li>
+                                            <a href="{{ route('showByDestination', ['destination' => $destination->id]) }}">{{ $destination->name }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
                             </li>
-                            <li class="menu-item has-children"><a href="#">{{ __('home.package') }}</a>
+                            <li class="menu-item has-children"><a
+                                    href="{{ route('tours') }}">{{ __('home.package') }}</a>
                             </li>
-                            <li class="menu-item has-children"><a href="#">{{ __('home.aboutUs') }}</a>
+                            <li class="menu-item has-children"><a
+                                    href="{{ route('aboutUs') }}">{{ __('home.aboutUs') }}</a>
                             </li>
-                            <li class="menu-item"><a href="contact.html">{{ __('home.hotel') }}</a></li>
-{{--                            <li class="menu-item"><a class="search-btn" href="#" data-bs-toggle="modal"--}}
-{{--                                                     data-bs-target="#search-modal"><i class="far fa-search"></i></a>--}}
-{{--                            </li>--}}
+                            <li class="menu-item"><a href="#">{{ __('home.hotel') }}</a></li>
+                            {{--                            <li class="menu-item"><a class="search-btn" href="#" data-bs-toggle="modal"--}}
+                            {{--                                                     data-bs-target="#search-modal"><i class="far fa-search"></i></a>--}}
+                            {{--                            </li>--}}
                         </ul>
                     </nav>
                     <!--=== Nav Button ===-->
@@ -41,7 +50,8 @@
                 <div class="nav-right-item d-flex align-items-center">
                     <div class="lang-dropdown">
                         <select class="wide form-control changeLang">
-                            <option value="uz" {{ session()->get('locale') == 'uz' ? 'selected' : '' }}>O'zbekcha</option>
+                            <option value="uz" {{ session()->get('locale') == 'uz' ? 'selected' : '' }}>O'zbekcha
+                            </option>
                             <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English</option>
                             <option value="ru" {{ session()->get('locale') == 'ru' ? 'selected' : '' }}>Русский</option>
                         </select>

@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('lang/change', [PageController::class, 'change'])->name('changeLang');
+Route::get('tours', [PageController::class, 'view'])->name('tours');
+Route::get('tours/{tour}', [PageController::class, 'show'])->name('show');
+Route::get('/about', [PageController::class, 'about'])->name('aboutUs');
+Route::get('destinations/{destination}', [PageController::class, 'showByDestination'])->name('showByDestination');
