@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class AboutPage extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'lang',
+        'title',
+        'description',
+        'image',
+    ];
 }

@@ -72,7 +72,7 @@
                             <ul class="category-nav">
 
                                 @foreach($destinations as $destination)
-                                <li><a href="{{ route('showByDestination', ['destination' => $destination->id]) }}">{{ $destination->name }}<i class="far fa-arrow-right"></i></a></li>
+                                <li><a href="{{ route('showByDestination', ['destination' => $destination->id]) }}  ">{{ $destination->name }}<i class="far fa-arrow-right"></i></a></li>
                                 @endforeach
 
                             </ul>

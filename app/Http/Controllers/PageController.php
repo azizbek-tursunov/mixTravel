@@ -59,10 +59,10 @@ class PageController extends Controller
         return view('tours', compact('tours', 'destinations'));
     }
 
-    public function about(Request $request)
+    public function about()
     {
-//        $about = AboutPage::where('lang', App::getLocale())->first();
+        $about = AboutPage::where('lang', App::getLocale())->first();
 
-        return view('aboutUs');
+        return view('aboutUs', compact('about'));
     }
 }

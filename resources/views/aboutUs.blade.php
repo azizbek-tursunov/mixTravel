@@ -1,16 +1,12 @@
 <x-layout>
     <!--====== Start Breadcrumb Section ======-->
     <section class="page-banner light-red-bg pt-170 pb-170 bg_cover"
-             style="background-image: url(/assets/images/bg/page-bg-1.jpg);">
+             style="background-image: url(/storage/{{ $about->image }});">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="page-banner-content text-center text-white">
-                        <h1 class="page-title">About Us</h1>
-                        <ul class="breadcrumb-link text-white">
-                            <li><a href="index.html">Home</a></li>
-                            <li class="active">About Us</li>
-                        </ul>
+                        <h1 class="page-title">{{ $about->title }}</h1>
                     </div>
                 </div>
             </div>

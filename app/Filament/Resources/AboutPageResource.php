@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\DestinationResource\Pages;
-use App\Filament\Resources\DestinationResource\RelationManagers;
-use App\Models\Destination;
+use App\Filament\Resources\AboutPageResource\Pages;
+use App\Filament\Resources\AboutPageResource\RelationManagers;
+use App\Models\AboutPage;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -13,30 +13,18 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class DestinationResource extends Resource
+class AboutPageResource extends Resource
 {
-    protected static ?string $model = Destination::class;
+    protected static ?string $model = AboutPage::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     protected static ?string $navigationGroup = 'Pages';
 
-
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('description')
-                    ->maxLength(255),
-                Forms\Components\FileUpload::make('image')
-                    ->image()
-                    ->imageResizeMode('force')
-                    ->imageResizeTargetWidth('410')
-                    ->imageResizeTargetHeight('275')
-                    ->required(),
                 Forms\Components\Select::make('lang')
                     ->options([
                         'uz' => 'O\'zbekcha',
@@ -44,6 +32,17 @@ class DestinationResource extends Resource
                         'ru' => 'Ruscha',
                     ])
                     ->required(),
+                Forms\Components\TextInput::make('title')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\RichEditor::make('description')
+                    ->required()
+                    ->maxLength(65535),
+                Forms\Components\FileUpload::make('image')
+                    ->required()
+                    ->image()
+                    ->imageResizeTargetWidth('1920')
+                    ->imageResizeTargetHeight('475'),
             ]);
     }
 
@@ -51,18 +50,19 @@ class DestinationResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('description'),
-                Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('lang'),
+                Tables\Columns\TextColumn::make('title'),
+                Tables\Columns\TextColumn::make('description'),
+                Tables\Columns\TextColumn::make('image'),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime(),
+                Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime(),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -80,10 +80,9 @@ class DestinationResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListDestinations::route('/'),
-            'create' => Pages\CreateDestination::route('/create'),
-            'view' => Pages\ViewDestination::route('/{record}'),
-            'edit' => Pages\EditDestination::route('/{record}/edit'),
+            'index' => Pages\ListAboutPages::route('/'),
+            'create' => Pages\CreateAboutPage::route('/create'),
+            'edit' => Pages\EditAboutPage::route('/{record}/edit'),
         ];
     }
 }
