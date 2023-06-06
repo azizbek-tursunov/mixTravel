@@ -5,15 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AboutPage extends Model
+class Partner extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'lang',
-        'title',
-        'description',
-        'banner_image',
+        'name',
         'image',
+        'link',
     ];
 }

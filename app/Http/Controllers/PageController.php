@@ -7,6 +7,7 @@ use App\Models\AboutPage;
 use App\Models\Banner;
 use App\Models\Destination;
 use App\Models\DestinationTour;
+use App\Models\Partner;
 use App\Models\Tour;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -28,6 +29,7 @@ class PageController extends Controller
     public function change(Request $request)
     {
         App::setLocale($request->lang);
+
 
         session()->put('locale', $request->lang);
 
@@ -62,7 +64,8 @@ class PageController extends Controller
     public function about()
     {
         $about = AboutPage::where('lang', App::getLocale())->first();
+        $partners = Partner::get();
 
-        return view('aboutUs', compact('about'));
+        return view('aboutUs', compact('about', 'partners'));
     }
 }

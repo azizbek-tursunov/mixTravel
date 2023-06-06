@@ -38,11 +38,16 @@ class AboutPageResource extends Resource
                 Forms\Components\RichEditor::make('description')
                     ->required()
                     ->maxLength(65535),
-                Forms\Components\FileUpload::make('image')
+                Forms\Components\FileUpload::make('banner_image')
                     ->required()
                     ->image()
                     ->imageResizeTargetWidth('1920')
                     ->imageResizeTargetHeight('475'),
+                Forms\Components\FileUpload::make('image')
+                    ->required()
+                    ->image()
+                    ->imageResizeTargetWidth('1235')
+                    ->imageResizeTargetHeight('806'),
             ]);
     }
 
@@ -50,13 +55,12 @@ class AboutPageResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('lang'),
+                Tables\Columns\ImageColumn::make('banner_image'),
+                Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\TextColumn::make('description'),
-                Tables\Columns\TextColumn::make('image'),
+                Tables\Columns\TextColumn::make('lang'),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime(),
             ])
             ->filters([
