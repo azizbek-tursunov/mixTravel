@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\DestinationController;
+use App\Http\Controllers\HotelController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\TourController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +19,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PageController::class, 'home'])->name('home');
-Route::get('lang/change', [PageController::class, 'change'])->name('changeLang');
-Route::get('tours', [PageController::class, 'view'])->name('tours');
-Route::get('tours/{tour}', [PageController::class, 'show'])->name('show');
 Route::get('/about', [PageController::class, 'about'])->name('aboutUs');
-Route::get('destinations/{destination}', [PageController::class, 'showByDestination'])->name('showByDestination');
+
+Route::get('lang/change', LanguageController::class)->name('changeLang');
+
+Route::get('tours', [TourController::class, 'index'])->name('tours');
+Route::get('tours/{tour}', [TourController::class, 'show'])->name('showTour');
+
+Route::get('destinations/{destination}', [DestinationController::class, 'showByDestination'])->name('showByDestination');
+
+Route::get('hotels', [HotelController::class, 'index'])->name('hotels');
+Route::get('hotels/{hotel}', [HotelController::class, 'show'])->name('showHotel');

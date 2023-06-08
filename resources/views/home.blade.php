@@ -177,12 +177,12 @@
                             <div class="hover-content">
                                 <div class="inner-content d-flex justify-content-between">
                                     <div class="text">
-                                        <h4 class="title"><a href="{{ route('show', ['tour' => $tour->id]) }}">{{ $tour->name }}</a></h4>
-                                        <a href="{{ route('show', ['tour' => $tour->id]) }}" class="btn-link">{{ $tour->direction }}<i
+                                            <h4 class="title"><a href="{{ route('showTour', ['tour' => $tour->id]) }}">{{ $tour->name }}</a></h4>
+                                        <a href="{{ route('showTour', ['tour' => $tour->id]) }}" class="btn-link">{{ $tour->direction }}<i
                                                 class="far fa-angle-double-right"></i></a>
                                     </div>
                                     <div class="icon">
-                                        <a href="{{ route('show', ['tour' => $tour->id]) }}" class="icon-btn"><i class="far fa-arrow-right"></i></a>
+                                        <a href="{{ route('showTour', ['tour' => $tour->id]) }}" class="icon-btn"><i class="far fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>

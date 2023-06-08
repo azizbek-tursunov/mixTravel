@@ -22,24 +22,52 @@
             <div class="row">
                 <div class="col-xl-8 col-lg-7">
                     <div class="blog-standard-wrapper mb-30">
-
-                        @foreach($tours as $tour)
-                        <div class="blog-standard-post-item mb-50 wow fadeInUp">
-                            <div class="post-thumbnail">
-                                <img src="/storage/{{ $tour->image }}" alt="Post Image">
-                            </div>
-                            <div class="entry-content">
-                                <div class="post-meta">
-                                    <ul>
-                                        <li><span><a href="#"><i class="far fa-calendar-alt"></i> November 23,2022</a></span>
-                                        </li>
-                                    </ul>
+                        @if(isset($tours))
+                            @foreach($tours as $tour)
+                                <div class="blog-standard-post-item mb-50 wow fadeInUp">
+                                    <div class="post-thumbnail">
+                                        <img src="/storage/{{ $tour->image }}" alt="Post Image">
+                                    </div>
+                                    <div class="entry-content">
+                                        <div class="post-meta">
+                                            <ul>
+                                                <li><span><a href="#"><i
+                                                                class="far fa-calendar-alt"></i> November 23,2022</a></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <h3 class="title"><a
+                                                href="{{ route('showTour', ['tour' => $tour->id]) }}">{{ $tour->direction }}</a>
+                                        </h3>
+                                        <a href="{{ route('showTour', ['tour' => $tour->id]) }}" class="btn-link">ko'proq
+                                            malumot olish<i class="far fa-angle-double-right"></i></a>
+                                    </div>
                                 </div>
-                                <h3 class="title"><a href="{{ route('show', ['tour' => $tour->id]) }}">{{ $tour->direction }}</a></h3>
-                                <a href="#" class="btn-link">ko'proq malumot olish<i class="far fa-angle-double-right"></i></a>
-                            </div>
-                        </div>
-                        @endforeach
+                            @endforeach
+                        @elseif(isset($hotels))
+                            @foreach($hotels as $hotel)
+                                <div class="blog-standard-post-item mb-50 wow fadeInUp">
+                                    <div class="post-thumbnail">
+                                        <img src="/storage/{{ $hotel->image }}" alt="Post Image">
+                                    </div>
+                                    <div class="entry-content">
+                                        <div class="post-meta">
+                                            <ul>
+                                                <li><span><a href="#"><i
+                                                                class="far fa-calendar-alt"></i> November 23,2022</a></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <h3 class="title"><a
+                                                href="{{ route('showHotel', ['hotel' => $hotel->id]) }}">{{ $hotel->name }}</a>
+                                        </h3>
+                                        <a href="{{ route('showHotel', ['hotel' => $hotel->id]) }}" class="btn-link">ko'proq
+                                            malumot olish<i class="far fa-angle-double-right"></i></a>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
+
 
                         <div class="vedhak-pagination mt-30 wow fadeInUp">
                             <ul>
@@ -66,17 +94,22 @@
                                 </div>
                             </form>
                         </div>
-                        <!--=== Category Widget ===-->
-                        <div class="sidebar-widget category-widget mb-30 wow fadeInUp">
-                            <h5 class="widget-title">{{ __('home.destination') }}</h5>
-                            <ul class="category-nav">
+                        @if(isset($destinations))
+                            <!--=== Category Widget ===-->
+                            <div class="sidebar-widget category-widget mb-30 wow fadeInUp">
+                                <h5 class="widget-title">{{ __('home.destination') }}</h5>
+                                <ul class="category-nav">
 
-                                @foreach($destinations as $destination)
-                                <li><a href="{{ route('showByDestination', ['destination' => $destination->id]) }}  ">{{ $destination->name }}<i class="far fa-arrow-right"></i></a></li>
-                                @endforeach
+                                    @foreach($destinations as $destination)
+                                        <li>
+                                            <a href="{{ route('showByDestination', ['destination' => $destination->id]) }}  ">{{ $destination->name }}
+                                                <i class="far fa-arrow-right"></i></a></li>
+                                    @endforeach
 
-                            </ul>
-                        </div>
+                                </ul>
+                            </div>
+                        @endif
+
                         <!--=== Recent Post Widget ===-->
                         <div class="sidebar-widget recent-post-widget mb-40 wow fadeInUp">
                             <h5 class="widget-title">Recent News</h5>

@@ -1,12 +1,12 @@
 <x-layout>
     <!--====== Start Breadcrumb Section ======-->
     <section class="page-banner light-red-bg pt-170 pb-170 bg_cover"
-             style="background-image: url(/storage/{{ $tour->image }});">
+             style="background-image: url(/storage/{{ $data->image }});">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="page-banner-content text-center text-white">
-                        <h1 class="page-title">{{ $tour->name }}</h1>
+                        <h1 class="page-title">{{ $data->name }}</h1>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
 {{--                            </div>--}}
                             <div class="main-post">
                                 <div class="entry-content">
-                                        {!! $tour->description !!}
+                                        {!! $data->description !!}
                                 </div>
                             </div>
                         </div>

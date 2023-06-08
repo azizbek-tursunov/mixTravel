@@ -35,10 +35,10 @@
                             <li class="menu-item has-children"><a
                                     href="{{ route('tours') }}">{{ __('home.package') }}</a>
                             </li>
+                            <li class="menu-item"><a href="{{ route('hotels') }}">{{ __('home.hotel') }}</a></li>
                             <li class="menu-item has-children"><a
                                     href="{{ route('aboutUs') }}">{{ __('home.aboutUs') }}</a>
                             </li>
-                            <li class="menu-item"><a href="#">{{ __('home.hotel') }}</a></li>
                             {{--                            <li class="menu-item"><a class="search-btn" href="#" data-bs-toggle="modal"--}}
                             {{--                                                     data-bs-target="#search-modal"><i class="far fa-search"></i></a>--}}
                             {{--                            </li>--}}
